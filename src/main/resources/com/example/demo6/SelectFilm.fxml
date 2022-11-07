@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e6975c;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.SelectFilmController">
+   <children>
+      <AnchorPane layoutX="-8.0" prefHeight="600.0" prefWidth="194.0" style="-fx-background-color: #52834f; -fx-background-radius: 10;">
+         <children>
+            <Button id="FilmB" fx:id="HomeFilmB" layoutX="37.0" layoutY="214.0" mnemonicParsing="false" onAction="#HendHomeFilm" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #a0693d; -fx-background-radius: 10;" text="Films" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button id="FoodB" fx:id="FoodB" layoutX="38.0" layoutY="342.0" mnemonicParsing="false" onAction="#HendFoodB" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 10;" text="Food" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button id="PoetryB" fx:id="PoetryB" layoutX="38.0" layoutY="275.0" mnemonicParsing="false" onAction="#HendPoetryB" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 10;" text="Poetry" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <ImageView layoutX="17.0" layoutY="15.0">
+               <image>
+                  <Image url="@img/Снимок_экрана_2022-10-30_204613-removebg-preview.png" />
+               </image>
+            </ImageView>
+
+         </children>
+      </AnchorPane>
+
+      <AnchorPane layoutX="512.0" layoutY="38.0" prefHeight="230.0" prefWidth="205.0" style="-fx-background-color: #a0693d; -fx-background-radius: 8;">
+         <children>
+            <Label layoutY="14.0" prefHeight="52.0" prefWidth="205.0" text="Окно с информацией о фильме" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="187.0" layoutY="321.0" prefHeight="252.0" prefWidth="611.0" style="-fx-background-color: #a0693d; -fx-background-radius: 8;">
+         <children>
+            <Label layoutX="194.0" layoutY="60.0" text="Трейлер" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="54.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="252.0" fitWidth="156.0" layoutX="224.0" layoutY="45.0">
+         <image>
+            <Image url="@img/Elki2.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.SelectFoodController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="800.0" layoutX="1.0">
+         <image>
+            <Image url="@img/fon-c-edoi%20.png" />
+         </image>
+      </ImageView>
+
+      <AnchorPane layoutX="-7.0" prefHeight="600.0" prefWidth="194.0" style="-fx-background-color: #52834f; -fx-background-radius: 10;">
+         <children>
+            <Button id="FilmB" fx:id="FilmB" layoutX="37.0" layoutY="214.0" mnemonicParsing="false" onAction="#HendFilmButton" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 10;" text="Films" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button id="FoodB" fx:id="HomeFoodB" layoutX="38.0" layoutY="342.0" mnemonicParsing="false" onAction="#HendFoodButton" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #a0693d; -fx-background-radius: 10;" text="Food" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button id="PoetryB" fx:id="PoetryB" layoutX="38.0" layoutY="275.0" mnemonicParsing="false" onAction="#HendPoetryButton" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 10;" text="Poetry" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <ImageView layoutX="19.0" layoutY="14.0">
+               <image>
+                  <Image url="@img/Снимок_экрана_2022-10-30_204613-removebg-preview.png" />
+               </image>
+            </ImageView>
+
+         </children>
+      </AnchorPane>
+
+      <AnchorPane layoutX="540.0" layoutY="24.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a0693d; -fx-background-radius: 8;">
+         <children>
+            <Text fill="WHITE" layoutX="40.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Информация о еде и приготовлении" wrappingWidth="119.900390625">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="197.0" layoutY="249.0" prefHeight="326.0" prefWidth="592.0" style="-fx-background-color: #a0693d; -fx-background-radius: 8;">
+         <children>
+            <Text fill="WHITE" layoutX="150.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Как готовить">
+               <font>
+                  <Font name="System Bold" size="46.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="210.0" fitWidth="317.0" layoutX="197.0" layoutY="24.0">
+         <image>
+            <Image url="@img/Pirog.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
