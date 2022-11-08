@@ -24,20 +24,6 @@ public class SelectFilmController {
 
         Scene scene = new Scene(root);
 
-
-        AnchorPane rootPane = (AnchorPane)scene.getRoot();
-        FlowPane fp = (FlowPane)rootPane.getChildren().get(0);
-        //FlowPane fp = (FlowPane)scene.lookup("#films");
-
-        for(int i = 1; i < 10;i++){
-            //Parent filmItem =  FXMLLoader.load(getClass().getResource("filmItem.fxml"));
-            //fp.getChildren().add(filmItem);
-
-            Button testButton = new Button("Film number " + i);
-            fp.getChildren().add(testButton);
-        }
-
-
         stage.setScene(scene);
         stage.show();
     }
