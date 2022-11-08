@@ -34,6 +34,10 @@ public class FilmController {
     @FXML
     public FlowPane films;
 
+    @FXML
+    public void initialize() throws IOException {
+        this.Add();
+    }
 
     public void Add() throws IOException {
         List<FilmDescription> filmList = new ArrayList<>();
