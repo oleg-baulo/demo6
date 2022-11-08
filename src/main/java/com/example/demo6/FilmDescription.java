@@ -1,32 +1,29 @@
 package com.example.demo6;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.scene.image.Image;
 
 public class FilmDescription {
-    private final StringProperty name = new SimpleStringProperty("");
-    private final StringProperty url = new SimpleStringProperty("");
-
-
+    private String name;
+    private String url;
 
     public FilmDescription(String name, String url) {
-        this.name.set(name);
-        this.url.set(url);
+        this.name = name;
+        this.url = url;
     }
 
     public String getName() {
-        return name.get();
+        return name;
     }
 
-    public void setName(String value) {
-        this.name.set(value);
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUrl() {
-        return url.get();
+        return url;
     }
 
-    public void setUrl(String value) {
-        this.url.set(value);
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

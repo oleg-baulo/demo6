@@ -1,5 +1,8 @@
 package com.example.demo6;
 
+import javafx.application.Platform;
+import javafx.beans.property.StringProperty;
+import javafx.css.Size;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,55 +17,68 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class FilmController {
 
     @FXML
-    private Button FoodB;
+    private ImageView Image;
 
     @FXML
-    private Button SearchB;
+    private Button SelectFilmButton;
 
     @FXML
-    private FlowPane films;
+    public FlowPane films;
 
 
-    public void SearchBClick (ActionEvent action) throws IOException {
-        films.getChildren().clear();
-        List<FilmDescription> list = new ArrayList<FilmDescription>( ) {
-        };
-
-        list.add(new FilmDescription( "Ёлки 2", "C:\\P\\JavaHelp\\demo6oleg\\src\\main\\resources\\com\\example\\demo6\\img\\рож-ественская-е-ка-xmas-разря-ного-пиксе-а-весе-ая-47933132.jpg"));
-        list.add(new FilmDescription( "Один дома", "C:\\P\\JavaHelp\\demo6oleg\\src\\main\\resources\\com\\example\\demo6\\img\\рож-ественская-е-ка-xmas-разря-ного-пиксе-а-весе-ая-47933132.jpg"));
-
-        for(int i = 0; i < list.size();i++){
-            //Parent filmItem =  FXMLLoader.load(getClass().getResource("filmItem.fxml"));
-            //fp.getChildren().add(filmItem);
-
-            FilmDescription fd = list.get(i);
+    public void Add() throws IOException {
+        List<FilmDescription> filmList = new ArrayList<>();
+        filmList.add(new FilmDescription("Ёлки 2", "img\\Elki2.png"));
 
 
+        for (FilmDescription fd : filmList) {
 
+            String bname = fd.getName();
+            Image url = new Image(Files.newInputStream(Path.of(fd.getUrl())));
 
-
-            Button testButton = new Button(fd.getName());
-
-            Image im = new Image(fd.getUrl());
-
-            ImageView imageView = new ImageView();
-            imageView.setImage(im);
-
-            AnchorPane ap = new AnchorPane();
-            ap.getChildren().add(imageView);
-
-            ap.getChildren().add(testButton);
-
-            films.getChildren().add(ap);
+            AddFilms(films, bname, url);
         }
     }
+    public static void AddFilms(FlowPane flowPane, String name, Image url) {
 
+        Button button = new Button();
+        button.setStyle("-fx-background-color: #bb3220");
+        button.setStyle("-fx-background-radius: 7");
+        button.setLayoutY(226);
+        button.setPrefSize(50, 156);
+        button.setText(String.valueOf(name));
+
+        ImageView imageView = new ImageView();
+        imageView.setImage(url);
+        imageView.setLayoutY(4);
+        imageView.setFitWidth(146);
+        imageView.setFitHeight(185);
+
+        AnchorPane anchorPane = new AnchorPane(imageView, button);
+        anchorPane.setStyle("-fx-background-color: #a0693d");
+        anchorPane.setStyle("-fx-background-radius: 6");
+        anchorPane.setPrefSize(277, 156);
+
+
+       // flowPane.setPrefWrapLength(123);
+
+        flowPane.getChildren().add(anchorPane);
+    }
+
+
+
+
+    @FXML
+    private Button FoodB;
     public void HendFoodB (ActionEvent action) throws IOException {
         Stage stage;
         Parent root;
@@ -79,6 +95,7 @@ public class FilmController {
         stage.setScene(scene);
         stage.show();
     }
+
 
 
     @FXML
@@ -105,25 +122,26 @@ public class FilmController {
     }
 
 
-    @FXML
-    private Button SelectFilmButton;
+//    @FXML
+//    private Button SelectFilmButton;
+//
+//    public void HendSelectFilmButton(ActionEvent event) throws IOException {
+//
+//        Stage stage;
+//        Parent root;
+//
+//        if (event.getSource() == SelectFilmButton){
+//            stage = (Stage) SelectFilmButton.getScene().getWindow();
+//            root = FXMLLoader.load(getClass().getResource("SelectFilm.fxml"));
+//        }
+//        else {
+//            stage = (Stage) SelectFilmButton.getScene().getWindow();
+//            root = FXMLLoader.load(getClass().getResource("SelectFilm.fxml"));
+//        }
+//
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
-    public void HendSelectFilmButton(ActionEvent event) throws IOException {
-
-        Stage stage;
-        Parent root;
-
-        if (event.getSource() == SelectFilmButton){
-            stage = (Stage) SelectFilmButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("SelectFilm.fxml"));
-        }
-        else {
-            stage = (Stage) SelectFilmButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("SelectFilm.fxml"));
-        }
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 }
