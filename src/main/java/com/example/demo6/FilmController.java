@@ -17,6 +17,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -41,13 +42,15 @@ public class FilmController {
 
     public void Add() throws IOException {
         List<FilmDescription> filmList = new ArrayList<>();
-        filmList.add(new FilmDescription("Ёлки 2", "img\\Elki2.png"));
+        filmList.add(new FilmDescription("Ёлки 2", "img/Elki2.png"));
 
 
         for (FilmDescription fd : filmList) {
 
             String bname = fd.getName();
-            Image url = new Image(Files.newInputStream(Path.of(fd.getUrl())));
+
+            URL result = getClass().getResource(fd.getUrl());
+            Image url = new Image(result.toString());
 
             AddFilms(films, bname, url);
         }
