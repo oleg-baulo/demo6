@@ -1,37 +1,39 @@
 package com.example.demo6;
 
-import javafx.application.Platform;
-import javafx.beans.property.StringProperty;
-import javafx.css.Size;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.VPos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class FilmController {
 
-    @FXML
-    private ImageView Image;
+
+
 
     @FXML
-    private Button SelectFilmButton;
+    private Button SearchButton;
 
+    @FXML
+    private TextField TextField;
+
+
+
+    
     @FXML
     public FlowPane films;
 
@@ -40,46 +42,107 @@ public class FilmController {
         this.Add();
     }
 
-    public void Add() throws IOException {
-        List<FilmDescription> filmList = new ArrayList<>();
-        filmList.add(new FilmDescription("Ёлки 2", "img/Elki2.png"));
 
+    List<FilmDescription> filmList = new ArrayList<>();
+
+    public void Add() throws IOException {
+
+        filmList.add(new FilmDescription("Ёлки 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\Elki2.png"));
+        filmList.add(new FilmDescription("Один дома", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
 
         for (FilmDescription fd : filmList) {
 
             String bname = fd.getName();
 
-            URL result = getClass().getResource(fd.getUrl());
-            Image url = new Image(result.toString());
+            //URL result = getClass().getResource(fd.getUrl());
+
+            //FileInputStream fisurl = new FileInputStream(fd.getUrl());
+
+            Image url = new Image(fd.getUrl(), 146, 185, true, true);
 
             AddFilms(films, bname, url);
         }
     }
-    public static void AddFilms(FlowPane flowPane, String name, Image url) {
+
+        private void AddFilms (FlowPane flowPane, String name, Image url){
+
+            Button button = new Button();
+            button.setStyle("-fx-background-color: #bb3220");
+            button.setStyle("-fx-background-radius: 7");
+            button.setLayoutY(226);
+            button.setPrefSize(150, 50);
+            button.setText(String.valueOf(name));
+
+            ImageView imageView = new ImageView();
+            imageView.setImage(url);
+            imageView.setLayoutY(4);
+            imageView.setFitWidth(146);
+            imageView.setFitHeight(185);
+
+            AnchorPane anchorPane = new AnchorPane(imageView, button);
+            anchorPane.setStyle("-fx-background-color: #a0693d;");
+            anchorPane.setStyle("-fx-background-radius: 6;");
+            anchorPane.setPrefSize(155, 270);
+
+
+            // flowPane.setPrefWrapLength(123);
+
+            flowPane.getChildren().add(anchorPane);
+        }
+
+
+
+
+
+
+
+
+    public void SerachBClick (ActionEvent event){
+        String inputFilm = TextField.getText().trim();
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setStyle("-fx-background-color: #a0693d;");
+        anchorPane.setStyle("-fx-background-radius: 6;");
+        anchorPane.setPrefSize(155, 270);
 
         Button button = new Button();
         button.setStyle("-fx-background-color: #bb3220");
         button.setStyle("-fx-background-radius: 7");
         button.setLayoutY(226);
-        button.setPrefSize(50, 156);
-        button.setText(String.valueOf(name));
-
-        ImageView imageView = new ImageView();
-        imageView.setImage(url);
-        imageView.setLayoutY(4);
-        imageView.setFitWidth(146);
-        imageView.setFitHeight(185);
-
-        AnchorPane anchorPane = new AnchorPane(imageView, button);
-        anchorPane.setStyle("-fx-background-color: #a0693d");
-        anchorPane.setStyle("-fx-background-radius: 6");
-        anchorPane.setPrefSize(277, 156);
+        button.setPrefSize(150, 50);
 
 
-       // flowPane.setPrefWrapLength(123);
 
-        flowPane.getChildren().add(anchorPane);
+        ImageView img = new ImageView();
+        img.setLayoutY(4);
+       // img.setFitWidth(146);
+       // img.setFitHeight(185);
+
+        films.getChildren().clear();
+
+        if (inputFilm != null){
+            for (FilmDescription fd : filmList){
+                if (fd.getName().contains(inputFilm)){
+//                    button.setText(fd.getName());
+                    Image url = new Image(fd.getUrl(), 146, 185, true, true);
+                    AddFilms(films, fd.getName(), url);
+//                    img.setImage(url);
+                }
+            }
+
+        }
+
     }
+
+
+
+
+
+
+
+
+
+
 
 
 

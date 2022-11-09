@@ -34,8 +34,8 @@
          </ImageView>
       </children>
    </AnchorPane>
-   <TextField layoutX="320.0" layoutY="46.0" />
-   <Button layoutX="499.0" layoutY="47.0" mnemonicParsing="false" text="Search" textFill="WHITE">
+   <TextField fx:id="TextField" layoutX="320.0" layoutY="46.0" />
+   <Button fx:id="SearchButton" layoutX="499.0" layoutY="47.0" mnemonicParsing="false" onAction="#SerachBClick" text="Search" textFill="WHITE">
       <font>
          <Font size="16.0" />
       </font>
