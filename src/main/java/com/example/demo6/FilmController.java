@@ -173,9 +173,6 @@ public class FilmController {
 
 
 
-
-
-
     public void SerachBClick (ActionEvent event){
         String inpFilm = TextField.getText().trim();
 
