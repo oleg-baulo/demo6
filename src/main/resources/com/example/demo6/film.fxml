@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -45,4 +46,5 @@
          <FlowPane fx:id="films" prefHeight="506.0" prefWidth="591.0" style="-fx-background-color: #e6975c;" />
       </content>
    </ScrollPane>
+   <ComboBox fx:id="categoryBox" layoutX="591.0" layoutY="50.0" prefWidth="150.0" />
 </AnchorPane>

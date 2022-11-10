@@ -1,11 +1,14 @@
 package com.example.demo6;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -29,10 +32,42 @@ public class FilmController {
     @FXML
     private Button SearchButton;
 
+
+    @FXML
+    private AnchorPane anchorPane;
+
+    @FXML
+    private Button button;
+
+    @FXML
+    private ImageView image;
+
     @FXML
     private TextField TextField;
 
+    @FXML
+    private ComboBox<String> categoryBox;
 
+    ObservableList<String> options = FXCollections.observableArrayList(
+                        "Option 1",
+                               "Option 2",
+                               "Option 3"
+                );
+
+//    public void addInBox (){
+//        ObservableList<String> options =
+//                FXCollections.observableArrayList(
+//                        "Option 1",
+//                        "Option 2",
+//                        "Option 3"
+//                );
+//        ComboBox combo_box = new ComboBox(FXCollections.observableArrayList(options));
+//    }
+
+    public void addInBox(){
+
+        categoryBox.setItems(options);
+    }
 
 
     @FXML
@@ -41,6 +76,7 @@ public class FilmController {
     @FXML
     public void initialize() throws IOException {
         this.Add();
+        this.addInBox();
     }
 
 
@@ -79,25 +115,25 @@ public class FilmController {
 
     private void AddFilms (FlowPane flowPane, String name, Image url){
 
-        Button button = new Button();
-        button.setStyle("-fx-background-color: #bb3220; -fx-background-radius: 7;");
-        button.setFont(Font.font("System Bold", 18.0));
-        button.setLayoutY(226);
-        button.setPrefSize(140, 50);
-        button.setText(String.valueOf(name));
-        button.setTextFill(Color.WHITE);
-
-
-        ImageView imageView = new ImageView();
-        imageView.setImage(url);
-        imageView.setLayoutY(4);
-        imageView.setFitWidth(140);
-        imageView.setFitHeight(185);
-
-        AnchorPane anchorPane = new AnchorPane(imageView, button);
-        anchorPane.setStyle("-fx-background-color: #a0693d; -fx-background-radius: 6;");
-        anchorPane.setPrefHeight(230);
-        anchorPane.setPrefWidth(140);
+//        Button button = new Button();
+//        button.setStyle("-fx-background-color: #bb3220; -fx-background-radius: 7;");
+//        button.setFont(Font.font("System Bold", 18.0));
+//        button.setLayoutY(226);
+//        button.setPrefSize(140, 50);
+//        button.setText(String.valueOf(name));
+//        button.setTextFill(Color.WHITE);
+//
+//
+//        ImageView imageView = new ImageView();
+//        imageView.setImage(url);
+//        imageView.setLayoutY(4);
+//        imageView.setFitWidth(140);
+//        imageView.setFitHeight(185);
+//
+//        AnchorPane anchorPane = new AnchorPane(imageView, button);
+//        anchorPane.setStyle("-fx-background-color: #a0693d; -fx-background-radius: 6;");
+//        anchorPane.setPrefHeight(230);
+//        anchorPane.setPrefWidth(140);
 
 
         //flowPane2.getChildren().add(anchorPane);
@@ -106,9 +142,31 @@ public class FilmController {
 
         // flowPane.setPrefWrapLength(123);
 
-        flowPane.setHgap(55);
-        flowPane.setVgap(15);
-        flowPane.getChildren().add(anchorPane);
+
+        Button b = new Button(button.getStyle());
+         b.setPrefWidth(button.getPrefWidth());
+         b.setPrefHeight(button.getPrefHeight());
+         b.setLayoutY(button.getLayoutY());
+         b.setLayoutX(button.getLayoutX());
+         b.setText(name);
+
+        ImageView img = new ImageView();
+         img.setLayoutY(image.getLayoutY());
+         img.setLayoutX(image.getLayoutX());
+         img.setImage(url);
+
+        AnchorPane ap = new AnchorPane(b, img);
+         ap.setPrefHeight(anchorPane.getPrefHeight());
+         ap.setPrefWidth(anchorPane.getPrefWidth());
+         ap.setStyle(anchorPane.getStyle());
+
+
+
+
+
+         flowPane.setHgap(55);
+         flowPane.setVgap(15);
+         flowPane.getChildren().add(anchorPane);
     }
 
 
@@ -119,34 +177,15 @@ public class FilmController {
 
 
     public void SerachBClick (ActionEvent event){
-        String inputFilm = TextField.getText().trim();
-        AnchorPane anchorPane = new AnchorPane();
-        anchorPane.setStyle("-fx-background-color: #a0693d;");
-        anchorPane.setStyle("-fx-background-radius: 6;");
-        anchorPane.setPrefSize(155, 270);
-
-        Button button = new Button();
-        button.setStyle("-fx-background-color: #bb3220");
-        button.setStyle("-fx-background-radius: 7");
-        button.setLayoutY(226);
-        button.setPrefSize(150, 50);
-
-
-
-        ImageView img = new ImageView();
-        img.setLayoutY(4);
-        // img.setFitWidth(146);
-        // img.setFitHeight(185);
+        String inpFilm = TextField.getText().trim();
 
         films.getChildren().clear();
 
-        if (inputFilm != null){
+        if (inpFilm != null){
             for (FilmDescription fd : filmList){
-                if (fd.getName().contains(inputFilm)){
-//                    button.setText(fd.getName());
+                if (fd.getName().contains(inpFilm)){
                     Image url = new Image(fd.getUrl(), 146, 185, true, true);
                     AddFilms(films, fd.getName(), url);
-//                    img.setImage(url);
                 }
             }
 
