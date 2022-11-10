@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -9,7 +10,6 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e6975c;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.FilmController">
-   <FlowPane fx:id="films" layoutX="199.0" layoutY="106.0" prefHeight="493.0" prefWidth="599.0" />
    <AnchorPane layoutX="-8.0" prefHeight="600.0" prefWidth="194.0" style="-fx-background-color: #52834f; -fx-background-radius: 10;">
       <children>
          <Button id="FilmB" layoutX="37.0" layoutY="214.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #a0693d; -fx-background-radius: 10;" text="Films" textFill="#f8f8f8">
@@ -40,4 +40,9 @@
          <Font size="16.0" />
       </font>
    </Button>
+   <ScrollPane hbarPolicy="NEVER" layoutX="191.0" layoutY="93.0" prefHeight="507.0" prefWidth="600.0" style="-fx-background-color: #e6975c;">
+      <content>
+         <FlowPane fx:id="films" prefHeight="506.0" prefWidth="591.0" style="-fx-background-color: #e6975c;" />
+      </content>
+   </ScrollPane>
 </AnchorPane>

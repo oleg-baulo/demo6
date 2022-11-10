@@ -6,16 +6,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +23,8 @@ import java.util.List;
 public class FilmController {
 
 
-
+    @FXML
+    private ScrollPane sPаnе;
 
     @FXML
     private Button SearchButton;
@@ -33,7 +34,7 @@ public class FilmController {
 
 
 
-    
+
     @FXML
     public FlowPane films;
 
@@ -50,6 +51,17 @@ public class FilmController {
         filmList.add(new FilmDescription("Ёлки 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\Elki2.png"));
         filmList.add(new FilmDescription("Один дома", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma.png"));
         filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
+        filmList.add(new FilmDescription("Один дома 2", "file:src\\main\\resources\\com\\example\\demo6\\img\\odinDoma2.png"));
 
         for (FilmDescription fd : filmList) {
 
@@ -65,31 +77,39 @@ public class FilmController {
         }
     }
 
-        private void AddFilms (FlowPane flowPane, String name, Image url){
+    private void AddFilms (FlowPane flowPane, String name, Image url){
 
-            Button button = new Button();
-            button.setStyle("-fx-background-color: #bb3220");
-            button.setStyle("-fx-background-radius: 7");
-            button.setLayoutY(226);
-            button.setPrefSize(150, 50);
-            button.setText(String.valueOf(name));
-
-            ImageView imageView = new ImageView();
-            imageView.setImage(url);
-            imageView.setLayoutY(4);
-            imageView.setFitWidth(146);
-            imageView.setFitHeight(185);
-
-            AnchorPane anchorPane = new AnchorPane(imageView, button);
-            anchorPane.setStyle("-fx-background-color: #a0693d;");
-            anchorPane.setStyle("-fx-background-radius: 6;");
-            anchorPane.setPrefSize(155, 270);
+        Button button = new Button();
+        button.setStyle("-fx-background-color: #bb3220; -fx-background-radius: 7;");
+        button.setFont(Font.font("System Bold", 18.0));
+        button.setLayoutY(226);
+        button.setPrefSize(140, 50);
+        button.setText(String.valueOf(name));
+        button.setTextFill(Color.WHITE);
 
 
-            // flowPane.setPrefWrapLength(123);
+        ImageView imageView = new ImageView();
+        imageView.setImage(url);
+        imageView.setLayoutY(4);
+        imageView.setFitWidth(140);
+        imageView.setFitHeight(185);
 
-            flowPane.getChildren().add(anchorPane);
-        }
+        AnchorPane anchorPane = new AnchorPane(imageView, button);
+        anchorPane.setStyle("-fx-background-color: #a0693d; -fx-background-radius: 6;");
+        anchorPane.setPrefHeight(230);
+        anchorPane.setPrefWidth(140);
+
+
+        //flowPane2.getChildren().add(anchorPane);
+
+
+
+        // flowPane.setPrefWrapLength(123);
+
+        flowPane.setHgap(55);
+        flowPane.setVgap(15);
+        flowPane.getChildren().add(anchorPane);
+    }
 
 
 
@@ -115,8 +135,8 @@ public class FilmController {
 
         ImageView img = new ImageView();
         img.setLayoutY(4);
-       // img.setFitWidth(146);
-       // img.setFitHeight(185);
+        // img.setFitWidth(146);
+        // img.setFitHeight(185);
 
         films.getChildren().clear();
 
@@ -170,7 +190,7 @@ public class FilmController {
 
     @FXML
     private Button PoetryB;
-//    public void SelectFilmGuidance(ActionEvent action){
+    //    public void SelectFilmGuidance(ActionEvent action){
 //        PoetryB.setOnMouseEntered(event -> {PoetryB.setStyle("-fx-background-color: #a07755");});
 //        PoetryB.setOnMouseExited(event -> {PoetryB.setStyle("");});
 //    }
