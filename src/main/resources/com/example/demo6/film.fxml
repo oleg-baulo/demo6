@@ -13,7 +13,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e6975c;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.FilmController">
    <AnchorPane layoutX="-8.0" prefHeight="600.0" prefWidth="194.0" style="-fx-background-color: #52834f; -fx-background-radius: 10;">
       <children>
-         <Button id="FilmB" layoutX="37.0" layoutY="214.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #a0693d; -fx-background-radius: 10;" text="Films" textFill="#f8f8f8">
+         <Button id="FilmB" fx:id="Home" layoutX="37.0" layoutY="214.0" mnemonicParsing="false" onAction="#getFilmPane" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #a0693d; -fx-background-radius: 10;" text="Films" textFill="#f8f8f8">
             <font>
                <Font name="System Bold" size="20.0" />
             </font>
@@ -35,16 +35,24 @@
          </ImageView>
       </children>
    </AnchorPane>
-   <TextField fx:id="TextField" layoutX="320.0" layoutY="46.0" />
-   <Button fx:id="SearchButton" layoutX="499.0" layoutY="47.0" mnemonicParsing="false" onAction="#SerachBClick" text="Search" textFill="WHITE">
-      <font>
-         <Font size="16.0" />
-      </font>
-   </Button>
-   <ScrollPane hbarPolicy="NEVER" layoutX="191.0" layoutY="93.0" prefHeight="507.0" prefWidth="600.0" style="-fx-background-color: #e6975c;">
-      <content>
-         <FlowPane fx:id="films" prefHeight="506.0" prefWidth="591.0" style="-fx-background-color: #e6975c;" />
-      </content>
-   </ScrollPane>
-   <ComboBox fx:id="categoryBox" layoutX="591.0" layoutY="50.0" prefWidth="150.0" />
+   <AnchorPane fx:id="fPane" layoutX="186.0" prefHeight="600.0" prefWidth="614.0">
+      <children>
+         <TextField fx:id="TextField" layoutX="119.0" layoutY="39.0" />
+         <Button fx:id="SearchButton" layoutX="54.0" layoutY="37.0" mnemonicParsing="false" onAction="#SerachBClick" text="Search" textFill="WHITE">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Button>
+         <ScrollPane hbarPolicy="NEVER" layoutX="7.0" layoutY="93.0" prefHeight="507.0" prefWidth="600.0" style="-fx-background-color: #e6975c;">
+            <content>
+               <FlowPane fx:id="films" prefHeight="506.0" prefWidth="591.0" style="-fx-background-color: #e6975c;" />
+            </content>
+         </ScrollPane>
+         <ComboBox fx:id="categoryBox" layoutX="324.0" layoutY="41.0" prefWidth="150.0" />
+         <Button fx:id="SelectB" layoutX="474.0" layoutY="42.0" minWidth="42.0" mnemonicParsing="false" onAction="#SelectBclick" prefHeight="26.0" prefWidth="42.0" text="Select">
+            <font>
+               <Font size="8.0" />
+            </font>
+         </Button>
+      </children></AnchorPane>
 </AnchorPane>

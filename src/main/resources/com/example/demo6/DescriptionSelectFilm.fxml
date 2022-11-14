@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.Media?>
+<?import javafx.scene.media.MediaPlayer?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e6975c;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.FilmController">
+   <children>
+      <AnchorPane layoutX="-8.0" prefHeight="600.0" prefWidth="194.0" style="-fx-background-color: #52834f; -fx-background-radius: 10;">
+         <children>
+            <Button id="FilmB" fx:id="Home" layoutX="37.0" layoutY="214.0" mnemonicParsing="false" onAction="#getFilmPane" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #a0693d; -fx-background-radius: 10;" text="Films" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button id="FoodB" fx:id="FoodB" layoutX="38.0" layoutY="342.0" mnemonicParsing="false" onAction="#HendFoodB" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 10;" text="Food" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button id="PoetryB" fx:id="PoetryB" layoutX="38.0" layoutY="275.0" mnemonicParsing="false" onAction="#HendPoetryB" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 10;" text="Poetry" textFill="#f8f8f8">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <ImageView layoutX="23.0" layoutY="14.0">
+               <image>
+                  <Image url="@img/Снимок_экрана_2022-10-30_204613-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="fPane" layoutX="186.0" prefHeight="600.0" prefWidth="614.0">
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="141.0" layoutX="46.0" layoutY="26.0">
+               <image>
+                  <Image url="@img/odinDoma.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="270.0" layoutY="26.0" prefHeight="262.0" prefWidth="294.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 7;">
+               <children>
+                  <Label layoutX="14.0" layoutY="11.0" text="Name: " textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="63.0" text="Rating:" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="115.0" text="Relise year:" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="167.0" text="Age:" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="219.0" text="Time:" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <Text fill="WHITE" layoutX="87.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="93.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="135.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="70.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="79.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="16.0" layoutY="326.0" prefHeight="262.0" prefWidth="580.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 7;">
+               <children>
+                  <MediaView fx:id="media" fitHeight="240.0" fitWidth="580.0" layoutX="122.0" layoutY="11.0">
+                     <mediaPlayer>
+                        <MediaPlayer>
+                           <media>
+                              <Media>
+                                 <source>
+                                    <URL value="@../../../../../../../../../../Users/denma/Downloads/videoplayback.mp4" />
+                                 </source>
+                              </Media>
+                           </media>
+                        </MediaPlayer>
+                     </mediaPlayer>
+                  </MediaView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

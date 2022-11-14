@@ -40,15 +40,6 @@ public class PoetryController {
 
 
     public String poetryTextReader(String pathfile) throws IOException {
-//        String line;
-//        String poetry = "";
-//        BufferedReader textReader = new BufferedReader(new FileReader(pathfile));
-//
-//        while ((line = textReader.readLine()) != null){
-//            poetry = line;
-//        }
-//
-//        return poetry;
 
 
         BufferedReader reader = new BufferedReader(new FileReader (pathfile));
@@ -174,7 +165,7 @@ public class PoetryController {
         Parent root;
 
             stage = (Stage) PfoodB.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("film.fxml"));
+            root = FXMLLoader.load(getClass().getResource("food.fxml"));
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

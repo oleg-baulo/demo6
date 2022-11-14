@@ -15,10 +15,7 @@ public class NewYearMoodGeneratorApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(NewYearMoodGeneratorApplication.class.getResource("film.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 802, 602);
-//        stage.setMaxHeight(610);
-//        stage.setMaxWidth(810);
-//        stage.setMinHeight(610);
-//        stage.setMinWidth(810);
+
         stage.setResizable(false);
         stage.setTitle("Hello!");
         stage.setScene(scene);

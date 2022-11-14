@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #a0693d;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.FoodController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e6975c;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.FoodController">
    <children>
 
       <AnchorPane layoutX="-7.0" prefHeight="600.0" prefWidth="194.0" style="-fx-background-color: #52834f; -fx-background-radius: 10;">
@@ -34,19 +37,19 @@
 
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="206.0" layoutY="29.0" prefHeight="207.0" prefWidth="170.0" style="-fx-background-color: #ae774b; -fx-background-radius: 7;">
+      <AnchorPane fx:id="fPane" layoutX="186.0" prefHeight="600.0" prefWidth="614.0">
          <children>
-            <Button fx:id="SelectFoodButton" layoutY="148.0" mnemonicParsing="false" onAction="#HendSelectFoodButton" prefHeight="58.0" prefWidth="170.0" style="-fx-background-color: #bb3220; -fx-background-radius: 7;" text="Яблучний пиріг" textFill="WHITE">
+            <TextField fx:id="TF" layoutX="181.0" layoutY="39.0" />
+            <Button fx:id="SearchB" layoutX="345.0" layoutY="37.0" mnemonicParsing="false" onAction="#searchBclick" text="Search" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="17.0" />
+                  <Font size="16.0" />
                </font>
             </Button>
-            <ImageView fitHeight="133.0" fitWidth="170.0">
-               <image>
-                  <Image url="@img/Pirog.png" />
-               </image>
-            </ImageView>
-
+            <ScrollPane hbarPolicy="NEVER" layoutX="9.0" layoutY="91.0" prefHeight="507.0" prefWidth="600.0" style="-fx-background-color: #e6975c;">
+               <content>
+                  <FlowPane fx:id="foods" prefHeight="506.0" prefWidth="591.0" style="-fx-background-color: #e6975c;" />
+               </content>
+            </ScrollPane>
          </children>
       </AnchorPane>
 
