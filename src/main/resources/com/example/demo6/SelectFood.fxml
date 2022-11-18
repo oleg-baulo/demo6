@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -40,29 +41,46 @@
 
          </children>
       </AnchorPane>
-
-      <AnchorPane layoutX="540.0" layoutY="24.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a0693d; -fx-background-radius: 8;">
+      <AnchorPane layoutX="186.0" layoutY="-2.0" prefHeight="600.0" prefWidth="618.0">
          <children>
-            <Text fill="WHITE" layoutX="40.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Информация о еде и приготовлении" wrappingWidth="119.900390625">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Text>
+            <ImageView fitHeight="210.0" fitWidth="317.0" layoutX="14.0" layoutY="33.0">
+               <image>
+                  <Image url="@img/Pirog.png" />
+               </image>
+            </ImageView>
+      
+            <AnchorPane layoutX="341.0" layoutY="19.0" prefHeight="237.0" prefWidth="262.0" style="-fx-background-color: #a0693d; -fx-background-radius: 8;">
+               <children>
+                  <Label layoutX="14.0" layoutY="14.0" text="Name:" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="44.0" text="Calories:" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="74.0" text="Time:" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="66.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text layoutX="77.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text layoutX="55.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="13.0" layoutY="274.0" prefHeight="326.0" prefWidth="592.0" style="-fx-background-color: #a0693d; -fx-background-radius: 8;">
+               <children>
+                  <Text fill="WHITE" layoutX="150.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Как готовить">
+                     <font>
+                        <Font name="System Bold" size="46.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="197.0" layoutY="249.0" prefHeight="326.0" prefWidth="592.0" style="-fx-background-color: #a0693d; -fx-background-radius: 8;">
-         <children>
-            <Text fill="WHITE" layoutX="150.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Как готовить">
-               <font>
-                  <Font name="System Bold" size="46.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-      <ImageView fitHeight="210.0" fitWidth="317.0" layoutX="197.0" layoutY="24.0">
-         <image>
-            <Image url="@img/Pirog.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

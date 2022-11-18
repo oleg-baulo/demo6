@@ -1,6 +1,5 @@
 package com.example.demo6;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,15 +15,12 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PoetryController {
 
     @FXML
     private FlowPane poetryPane;
-
-
-    @FXML
-    private Button searchButton;
     @FXML
     private TextField search;
 
@@ -42,20 +38,16 @@ public class PoetryController {
     public String poetryTextReader(String pathfile) throws IOException {
 
 
-        BufferedReader reader = new BufferedReader(new FileReader (pathfile));
-        String line = null;
-        StringBuilder stringBuilder = new StringBuilder();
-        String ls = System.getProperty("line.separator");
-
-        try {
-            while((line = reader.readLine()) != null) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(pathfile))) {
+            String line;
+            StringBuilder stringBuilder = new StringBuilder();
+            String ls = System.getProperty("line.separator");
+            while ((line = reader.readLine()) != null) {
                 stringBuilder.append(line);
                 stringBuilder.append(ls);
             }
 
             return stringBuilder.toString();
-        } finally {
-            reader.close();
         }
     }
 
@@ -122,7 +114,7 @@ public class PoetryController {
 
 
 
-    public void SearchBclick (ActionEvent event){
+    public void SearchBclick (){
         poetryPane.getChildren().clear();
         String inpPoetry = search.getText().trim();
 
@@ -145,12 +137,12 @@ public class PoetryController {
 
     @FXML
     private Button PfilmB;
-    public void HendPfilmB (ActionEvent action) throws IOException {
+    public void HendPfilmB () throws IOException {
             Stage stage;
             Parent root;
 
             stage = (Stage) PfilmB.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("film.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("film.fxml")));
 
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -160,12 +152,12 @@ public class PoetryController {
 
     @FXML
     private Button PfoodB;
-    public void HendPfoodB (ActionEvent action) throws IOException {
+    public void HendPfoodB () throws IOException {
         Stage stage;
         Parent root;
 
             stage = (Stage) PfoodB.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("food.fxml"));
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("food.fxml")));
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

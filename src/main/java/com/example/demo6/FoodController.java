@@ -1,6 +1,5 @@
 package com.example.demo6;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,9 +13,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FoodController {
 
@@ -24,23 +26,37 @@ public class FoodController {
     private FlowPane foods;
     @FXML
     private javafx.scene.control.TextField TF;
-
     @FXML
-    private Button SearchB;
-
+    private AnchorPane fPane;
     @FXML
     public void initialize() throws IOException {
         this.Add();
     }
+    SelectFoodDescription selFoDesc = new SelectFoodDescription();
     List<foodDescription> foodList = new ArrayList<>();
 
+    public String foodTextReader(String pathfile) throws IOException {
 
-    public void Add (){
-        foodList.add(new foodDescription("Яблучний пиріг", "file:src\\main\\resources\\com\\example\\demo6\\img\\Pirog.png"));
-        foodList.add(new foodDescription("М'ясо", "file:src\\main\\resources\\com\\example\\demo6\\img\\miaso.png"));
-        foodList.add(new foodDescription("Курка", "file:src\\main\\resources\\com\\example\\demo6\\img\\kyrica-removebg-preview.png"));
-        foodList.add(new foodDescription("Бутерброд з червоною ікрою", "file:src\\main\\resources\\com\\example\\demo6\\img\\byterbrod-s-krasnoy-ikroy-removebg-preview.png"));
-        foodList.add(new foodDescription("Оливье", "file:src\\main\\resources\\com\\example\\demo6\\img\\olivie-removebg-preview.png"));
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(pathfile))) {
+            String line;
+            StringBuilder stringBuilder = new StringBuilder();
+            String ls = System.getProperty("line.separator");
+            while ((line = reader.readLine()) != null) {
+                stringBuilder.append(line);
+                stringBuilder.append(ls);
+            }
+
+            return stringBuilder.toString();
+        }
+    }
+
+
+
+    public void Add () throws IOException {
+        String purig = foodTextReader("src/main/resources/com/example/demo6/Recipes/YabluchniPurig/YablichniPurig.txt");
+        String purigIngr = foodTextReader("src/main/resources/com/example/demo6/Recipes/YabluchniPurig/Ingridienty.txt");
+        foodList.add(new foodDescription("Яблучний пиріг", "file:src\\main\\resources\\com\\example\\demo6\\img\\Pirog.png", purigIngr, purig, "175 кКал/100 г", 1 ));
 
         for (foodDescription fd : foodList) {
 
@@ -63,6 +79,17 @@ public class FoodController {
         button.setFont(Font.font("System Bold", 18.0));
         button.setPrefSize(170, 58);
         button.setLayoutY(148);
+        button.setOnMouseClicked(event -> {
+            fPane.getChildren().clear();
+            String btext = button.getText();
+            for (foodDescription fd : foodList) {
+                if (fd.getName().equals(btext)) {
+                    Image img1 = new Image(fd.getUrl(), true);
+                    String time = String.valueOf(fd.getTime());
+                    selFoDesc.SFoodD(fPane, img1, btext, fd.getIngridienty(), fd.getRecept(), fd.getCallory(), time);
+                }
+            }
+        });
 
         ap.getChildren().addAll(imgView, button);
 
@@ -72,7 +99,7 @@ public class FoodController {
     }
 
     @FXML
-    void searchBclick(ActionEvent event) {
+    void searchBclick() {
         String inpFilm = TF.getText().trim();
 
         foods.getChildren().clear();
@@ -91,18 +118,13 @@ public class FoodController {
 
     @FXML
     private Button FofilmB;
-    public void HendFofilmB(ActionEvent action) throws IOException {
+    public void HendFofilmB() throws IOException {
         Stage stage;
         Parent root;
 
-        if (action.getSource() == FofilmB){
             stage = (Stage) FofilmB.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("film.fxml"));
-        }
-        else {
-            stage = (Stage) FofilmB.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("food.fxml"));
-        }
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("film.fxml")));
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -115,41 +137,11 @@ public class FoodController {
 
     @FXML
     private Button FopoetryB;
-    public void HendFopoetryB(ActionEvent action) throws IOException {
+    public void HendFopoetryB() throws IOException {
         Stage stage;
         Parent root;
-
-        if (action.getSource() == FopoetryB){
             stage = (Stage) FopoetryB.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("poetry.fxml"));
-        }
-        else {
-            stage = (Stage) FopoetryB.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("poetry.fxml"));
-        }
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-
-    @FXML
-    private Button SelectFoodButton;
-    public void HendSelectFoodButton(ActionEvent event) throws IOException {
-        Stage stage;
-        Parent root;
-
-        if (event.getSource() == SelectFoodButton){
-            stage = (Stage) SelectFoodButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("SelectFood.fxml"));
-        }
-        else {
-            stage = (Stage) SelectFoodButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("SelectFood.fxml"));
-        }
-
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("poetry.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

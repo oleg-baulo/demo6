@@ -5,15 +5,14 @@ public class FilmDescription {
 
 
     private String name;
-    private String url;
-
     private String trurl;
+    private String url;
     private double rating;
     private int reliseYear;
     private int age;
     private int timeMin;
 
-    public FilmDescription(String name, String url, String trurl, double rating, int reliseYear, int age, int timeMin) {
+    public FilmDescription(String name, String trurl, String url, double rating, int reliseYear, int age, int timeMin) {
         this.name = name;
         this.url = url;
         this.trurl = url;

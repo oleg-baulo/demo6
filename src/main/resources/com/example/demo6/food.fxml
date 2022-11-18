@@ -29,7 +29,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <ImageView layoutX="17.0" layoutY="8.0">
+            <ImageView fx:id="foodTimerToNY" accessibleRole="BUTTON" layoutX="17.0" layoutY="8.0">
                <image>
                   <Image url="@img/Снимок_экрана_2022-10-30_204613-removebg-preview.png" />
                </image>

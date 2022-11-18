@@ -28,7 +28,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <ImageView layoutX="17.0">
+            <ImageView fx:id="poetryTimerToNY" accessibleRole="BUTTON" fitHeight="116.0" fitWidth="154.0" layoutX="17.0">
                <image>
                   <Image url="@img\Снимок_экрана_2022-10-30_204613-removebg-preview.png" />
                </image>

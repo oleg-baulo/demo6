@@ -11,22 +11,19 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 
 public class FilmController {
 
     SelectFilmDescription seFiDe = new SelectFilmDescription();
     CompareFims compareFims = new CompareFims();
-
+    Countdown countdown = new Countdown();
 
     @FXML
     private TextField TextField;
@@ -36,10 +33,19 @@ public class FilmController {
     @FXML
     public FlowPane films;
 
-
     @FXML
     private AnchorPane fPane;
 
+
+    @FXML
+    void countdownToNewYear() {
+        fPane.getChildren().clear();
+
+        Text cd = new Text();
+
+
+        countdown.CDTNY(cd, fPane);
+    }
     public void addInBox() {
         ObservableList<String> options = FXCollections.observableArrayList(
                 "Max age",
@@ -80,6 +86,7 @@ public class FilmController {
     public void initialize(){
         this.Add();
         this.addInBox();
+        //this.CallbackDate();
     }
 
 
@@ -128,8 +135,11 @@ public class FilmController {
             for (FilmDescription fd : filmList) {
                 if (fd.getName().equals(bt)) {
                     Image img = new Image(fd.getUrl());
-                    Media media = new Media(fd.getTrurl());
-                    seFiDe.SFD(fPane, img, media);
+                    String rating = String.valueOf(fd.getRating());
+                    String relise = String.valueOf(fd.getReliseYear());
+                    String age = String.valueOf(fd.getAge());
+                    String time = String.valueOf(fd.getTimeMin());
+                    seFiDe.SFD(fPane, img, fd.getName(), rating, relise, age, time);
                 }
             }
         });
