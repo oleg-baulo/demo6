@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchorPane" fx:id="anchorPane" prefHeight="277.0" prefWidth="156.0" style="-fx-background-color: #a0693d; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.FilmController">
+<AnchorPane id="anchorPane" fx:id="anchorPane" prefHeight="277.0" prefWidth="156.0" style="-fx-background-color: #a0693d; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FilmController">
    <children>
       <Button fx:id="button" layoutY="226.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="156.0" style="-fx-background-color: #bb3220; -fx-background-radius: 7;" text="text" textFill="WHITE">
          <font>

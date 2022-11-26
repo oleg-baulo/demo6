@@ -1,14 +1,11 @@
 package com.example.demo6;
-
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 import java.util.*;
 
 public class Countdown {
 
-    public void CDTNY(Text cd, AnchorPane fPane) {
-        while (true) {
+    public void CDTNY(Text cd) {
             int SECONDS_IN_A_DAY = 24 * 60 * 60;
             Calendar thatDay = Calendar.getInstance();
             thatDay.setTime(new Date(0));
@@ -26,9 +23,6 @@ public class Countdown {
             long minutes = (secondsDay / 60) % 60;
             long hours = (secondsDay / 3600);
 
-            //System.out.printf("%d days, %d hours, %d minutes and %d seconds\n", days, hours, minutes, seconds);
-            cd.setText("Days: " + days + " Hours: " + hours + " Minutes: " + minutes + " Seconds: " + seconds);
-            fPane.getChildren().add(cd);
-        }
+            cd.setText("Next year in: days: " + days + " hours: " + hours );
     }
 }

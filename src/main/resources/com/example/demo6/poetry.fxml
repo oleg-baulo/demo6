@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -8,10 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #d1c3b8;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.PoetryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e6975c;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PoetryController">
    <children>
-      <AnchorPane layoutX="-8.0" prefHeight="600.0" prefWidth="194.0" style="-fx-background-color: #52834f; -fx-background-radius: 10;">
+      <AnchorPane fx:id="FPFpane" layoutX="-7.0" prefHeight="600.0" prefWidth="194.0" style="-fx-background-color: #52834f; -fx-background-radius: 10;">
          <children>
             <Button id="FilmB" fx:id="PfilmB" layoutX="37.0" layoutY="214.0" mnemonicParsing="false" onAction="#HendPfilmB" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 10;" text="Films" textFill="#f8f8f8">
                <font>
@@ -28,19 +30,33 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <ImageView fx:id="poetryTimerToNY" accessibleRole="BUTTON" fitHeight="116.0" fitWidth="154.0" layoutX="17.0">
+            <ImageView fx:id="poetryTimerToNY" accessibleRole="BUTTON" fitHeight="115.0" fitWidth="148.0" layoutX="17.0" layoutY="8.0">
                <image>
                   <Image url="@img\Снимок_экрана_2022-10-30_204613-removebg-preview.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <TextField fx:id="search" layoutX="311.0" layoutY="30.0" prefHeight="27.0" prefWidth="165.0" />
-      <Button fx:id="searchButton" layoutX="506.0" layoutY="31.0" mnemonicParsing="false" onAction="#SearchBclick" text="Search" />
-      <ScrollPane hbarPolicy="NEVER" layoutX="196.0" layoutY="79.0" prefHeight="521.0" prefWidth="604.0" style="-fx-background-color: #d1c3b8;">
+      <ScrollPane hbarPolicy="NEVER" layoutX="196.0" layoutY="79.0" prefHeight="521.0" prefWidth="604.0" style="-fx-background-color: #e6975c;" styleClass="mylistview" stylesheets="@Css/buttonStyle.css">
          <content>
-            <FlowPane fx:id="poetryPane" prefHeight="520.0" prefWidth="606.0" style="-fx-background-color: #d1c3b8;" />
+            <FlowPane fx:id="poetryPane" prefHeight="520.0" prefWidth="606.0" style="-fx-background-color: #e6975c;" />
          </content>
       </ScrollPane>
+      <Text fx:id="countDtoNewYear" fill="WHITE" layoutX="10.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+         <font>
+            <Font name="Clarendon BT Bold" size="22.0" />
+         </font>
+      </Text>
+      <TextField fx:id="search" layoutX="197.0" layoutY="40.0" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #b77849; -fx-background-radius: 8;">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Button id="searchB" fx:id="searchButton" layoutX="360.0" layoutY="36.0" mnemonicParsing="false" onAction="#SearchBclick" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #bb3220; -fx-background-radius: 8;" text="Search" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>
