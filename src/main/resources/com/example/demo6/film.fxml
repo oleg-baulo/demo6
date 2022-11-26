@@ -13,62 +13,75 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e6975c;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FilmController">
-   <AnchorPane fx:id="FPFpane" layoutX="-7.0" prefHeight="600.0" prefWidth="194.0" style="-fx-background-color: #52834f; -fx-background-radius: 10;">
-      <children>
-         <Button id="FilmB" fx:id="Home" layoutX="37.0" layoutY="214.0" mnemonicParsing="false" onAction="#getFilmPane" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #a0693d; -fx-background-radius: 10;" text="Films" textFill="#f8f8f8">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Button>
-         <Button id="FoodB" fx:id="FoodB" layoutX="38.0" layoutY="342.0" mnemonicParsing="false" onAction="#HendFoodB" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 10;" text="Food" textFill="#f8f8f8">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Button>
-         <Button id="PoetryB" fx:id="PoetryB" layoutX="38.0" layoutY="275.0" mnemonicParsing="false" onAction="#HendPoetryB" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 10;" text="Poetry" textFill="#f8f8f8">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Button>
-         <ImageView accessibleRole="BUTTON" fitHeight="115.0" fitWidth="148.0" layoutX="17.0" layoutY="8.0" pickOnBounds="true">
-            <image>
-               <Image url="@img/Снимок_экрана_2022-10-30_204613-removebg-preview.png" />
-            </image>
-         </ImageView>
-      </children>
+   <AnchorPane fx:id="FPFpane" layoutX="-7.0" prefHeight="600.0" prefWidth="194.0"
+               style="-fx-background-color: #52834f; -fx-background-radius: 10;">
+      <Button id="FilmB" fx:id="Home" layoutX="37.0" layoutY="214.0" mnemonicParsing="false" onAction="#getFilmPane"
+              prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #a0693d; -fx-background-radius: 10;"
+              text="Films" textFill="#f8f8f8">
+         <font>
+            <Font name="System Bold" size="20.0"/>
+         </font>
+      </Button>
+      <Button id="FoodB" fx:id="FoodB" layoutX="38.0" layoutY="342.0" mnemonicParsing="false" onAction="#HendFoodB"
+              prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #9e5b26; -fx-background-radius: 10;"
+              text="Food" textFill="#f8f8f8">
+         <font>
+            <Font name="System Bold" size="20.0"/>
+         </font>
+      </Button>
+      <Button id="PoetryB" fx:id="PoetryB" layoutX="38.0" layoutY="275.0" mnemonicParsing="false"
+              onAction="#HendPoetryB" prefHeight="43.0" prefWidth="96.0"
+              style="-fx-background-color: #9e5b26; -fx-background-radius: 10;" text="Poetry" textFill="#f8f8f8">
+         <font>
+            <Font name="System Bold" size="20.0"/>
+         </font>
+      </Button>
+      <ImageView accessibleRole="BUTTON" fitHeight="115.0" fitWidth="148.0" layoutX="17.0" layoutY="8.0"
+                 pickOnBounds="true">
+         <Image url="@img/Снимок_экрана_2022-10-30_204613-removebg-preview.png"/>
+      </ImageView>
    </AnchorPane>
    <AnchorPane fx:id="fPane" layoutX="186.0" prefHeight="600.0" prefWidth="614.0">
-      <children>
-         <TextField fx:id="TextField" layoutX="23.0" layoutY="39.0" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #b77849; -fx-background-radius: 8;">
-            <font>
-               <Font name="System Bold" size="15.0" />
-            </font></TextField>
-         <Button fx:id="SearchButton" layoutX="186.0" layoutY="35.0" mnemonicParsing="false" onAction="#SerachBClick" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #bb3220; -fx-background-radius: 8;" text="Search" textFill="WHITE">
-            <font>
-               <Font size="16.0" />
-            </font>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
-         <ScrollPane accessibleRole="SCROLL_BAR" hbarPolicy="NEVER" layoutX="7.0" layoutY="93.0" pannable="true" prefHeight="507.0" prefWidth="600.0" style="-fx-background-color: #e6975c;" styleClass="mylistview" stylesheets="@Css/buttonStyle.css" vbarPolicy="ALWAYS">
-            <content>
-               <FlowPane fx:id="films" prefHeight="506.0" prefWidth="591.0" style="-fx-background-color: #e6975c;" />
-            </content>
-         </ScrollPane>
-         <ComboBox fx:id="categoryBox" blendMode="SRC_ATOP" layoutX="340.0" layoutY="39.0" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: #a0693d; -fx-background-radius: 5;">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor></ComboBox>
-         <Button fx:id="SelectB" layoutX="500.0" layoutY="36.0" minWidth="42.0" mnemonicParsing="false" onAction="#SelectBclick" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #bb3220; -fx-background-radius: 8;" text="Select" textFill="WHITE">
-            <font>
-               <Font size="16.0" />
-            </font>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </Button>
-      </children></AnchorPane>
+      <TextField fx:id="TextField" layoutX="23.0" layoutY="39.0" prefHeight="30.0" prefWidth="152.0"
+                 style="-fx-background-color: #b77849; -fx-background-radius: 8;">
+         <font>
+            <Font name="System Bold" size="15.0"/>
+         </font>
+      </TextField>
+      <Button fx:id="SearchButton" layoutX="186.0" layoutY="35.0" mnemonicParsing="false" onAction="#SerachBClick"
+              prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #bb3220; -fx-background-radius: 8;"
+              text="Search" textFill="WHITE">
+         <font>
+            <Font size="16.0"/>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+      <ScrollPane accessibleRole="SCROLL_BAR" hbarPolicy="NEVER" layoutX="7.0" layoutY="93.0" pannable="true"
+                  prefHeight="507.0" prefWidth="600.0" style="-fx-background-color: #e6975c;" styleClass="mylistview"
+                  stylesheets="@Css/buttonStyle.css" vbarPolicy="ALWAYS">
+         <content>
+            <FlowPane fx:id="films" prefHeight="506.0" prefWidth="591.0" style="-fx-background-color: #e6975c;"/>
+         </content>
+      </ScrollPane>
+      <ComboBox fx:id="categoryBox" blendMode="SRC_ATOP" layoutX="340.0" layoutY="39.0" prefHeight="30.0"
+                prefWidth="152.0" style="-fx-background-color: #a0693d; -fx-background-radius: 5;">
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </ComboBox>
+      <Button fx:id="SelectB" layoutX="500.0" layoutY="36.0" minWidth="42.0" mnemonicParsing="false"
+              onAction="#SelectBclick" prefHeight="37.0" prefWidth="77.0"
+              style="-fx-background-color: #bb3220; -fx-background-radius: 8;" text="Select" textFill="WHITE">
+         <font>
+            <Font size="16.0"/>
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND"/>
+         </cursor>
+      </Button>
+   </AnchorPane>
    <Text fx:id="countDtoNewYear" fill="WHITE" layoutX="10.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
       <font>
          <Font name="Clarendon BT Bold" size="22.0" />

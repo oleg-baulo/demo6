@@ -116,15 +116,13 @@ public class FoodController {
 
         foods.getChildren().clear();
 
-        if (inpFilm != null){
-            for (foodDescription fd : foodList){
-                if (fd.getName().contains(inpFilm)){
-                    Image url = new Image(fd.getUrl(), 170, 133, true, true);
-                    addFood(foods, fd.getName(), url);
-                }
+        for (foodDescription fd : foodList){
+            if (fd.getName().contains(inpFilm)){
+                Image url = new Image(fd.getUrl(), 170, 133, true, true);
+                addFood(foods, fd.getName(), url);
             }
-
         }
+
     }
 
 

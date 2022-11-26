@@ -117,13 +117,11 @@ public class PoetryController {
         poetryPane.getChildren().clear();
         String inpPoetry = search.getText().trim();
 
-        if (inpPoetry != null){
-          for (PoetryDescription pd : poetryList){
-              if (pd.getName().contains(inpPoetry)){
-                  poetryAdd(poetryPane, pd.getName(), pd.getVerse());
-              }
+        for (PoetryDescription pd : poetryList){
+            if (pd.getName().contains(inpPoetry)){
+                poetryAdd(poetryPane, pd.getName(), pd.getVerse());
             }
-        }
+          }
     }
 
 

@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.*;
 
 import static java.util.Objects.requireNonNull;
@@ -31,6 +32,8 @@ import static java.util.Objects.requireNonNull;
 public class FilmController {
 
     public AnchorPane FPFpane;
+    public Button SearchButton;
+    public Button SelectB;
     SelectFilmDescription seFiDe = new SelectFilmDescription();
     CompareFims compareFims = new CompareFims();
     Countdown countdown = new Countdown();
@@ -207,10 +210,10 @@ public class FilmController {
     @FXML
     private Button PoetryB;
     public void HendPoetryB() throws IOException {
-        Parent root;
         Stage stage;
+        Parent root;
         stage = (Stage) PoetryB.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("poetry.fxml"));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("poetry.fxml")));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
