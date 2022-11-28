@@ -1,5 +1,6 @@
 package Descriptions;
 
+import com.example.demo6.NewYearMoodGeneratorApplication;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -15,6 +16,8 @@ import java.net.MalformedURLException;
 public class SelectFoodDescription {
     public void SFoodD(AnchorPane foodPane, Image foodimage,String name ,String ingridienty, String recept, String callory, String time) throws MalformedURLException {
 
+        var infBarStyle = NewYearMoodGeneratorApplication.class;
+        var infBS = infBarStyle.getResource("Css/foodScroll.css");
 
         AnchorPane foodInfPane = new AnchorPane();
         foodInfPane.setStyle("-fx-background-color: #a0693d; -fx-background-radius: 8;");
@@ -24,8 +27,9 @@ public class SelectFoodDescription {
 
 
         ScrollPane scrollInfPane = new ScrollPane(foodInfPane);
+        scrollInfPane.getStylesheets().add(String.valueOf(infBS));
         scrollInfPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        scrollInfPane.setStyle("-fx-background-color: #a0693d;");
+        scrollInfPane.setStyle("-fx-background-color: #a0693d; -fx-background-radius: 8; -fx-border-color: #a0693d");
 
         File scrollStyle = new File(new File("Css/foodScroll.css").toURI().toURL().toExternalForm());
         scrollInfPane.getStylesheets().add(String.valueOf(scrollStyle));
@@ -98,7 +102,8 @@ public class SelectFoodDescription {
 
         ScrollPane sp = new ScrollPane(receptP);
         sp.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        sp.setStyle("-fx-background-color: #a0693d; -fx-background-radius: 8;");
+        sp.getStylesheets().add(String.valueOf(infBS));
+        sp.setStyle("-fx-background-color: #a0693d; -fx-background-radius: 8; -fx-border-color: #a0693d");
         sp.setPrefWidth(592);
         sp.setPrefHeight(326);
         sp.setLayoutY(274);

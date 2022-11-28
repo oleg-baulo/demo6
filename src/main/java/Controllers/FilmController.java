@@ -1,9 +1,9 @@
 package Controllers;
 
-import com.example.demo6.CompareFims;
-import com.example.demo6.Countdown;
 import Descriptions.FilmDescription;
 import Descriptions.SelectFilmDescription;
+import com.example.demo6.CompareFims;
+import com.example.demo6.Countdown;
 import com.example.demo6.NewYearMoodGeneratorApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,7 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -24,20 +26,21 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.util.Objects.requireNonNull;
 
 
 public class FilmController {
+    SelectFilmDescription seFiDe = new SelectFilmDescription();
+    CompareFims compareFims = new CompareFims();
+    Countdown countdown = new Countdown();
 
     public AnchorPane FPFpane;
     public Button SearchButton;
     public Button SelectB;
-    SelectFilmDescription seFiDe = new SelectFilmDescription();
-    CompareFims compareFims = new CompareFims();
-    Countdown countdown = new Countdown();
+
 
     @FXML
     private TextField TextField;
@@ -200,34 +203,48 @@ public class FilmController {
     private Button FoodB;
 
     public void HendFoodB() throws IOException {
-        Stage stage;
-        Parent root;
-        stage = (Stage) FoodB.getScene().getWindow();
+        try {
 
-        var appClass = NewYearMoodGeneratorApplication.class;
-        var poetryresources = appClass.getResource("food.fxml");
+            Stage stage;
+            Parent root;
+            stage = (Stage) FoodB.getScene().getWindow();
 
-        root = FXMLLoader.load(requireNonNull(poetryresources));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            var appClass = NewYearMoodGeneratorApplication.class;
+            var poetryresources = appClass.getResource("food.fxml");
+
+            root = FXMLLoader.load(requireNonNull(poetryresources));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            seFiDe.cancelTimer();
+        }
+        catch (NullPointerException ex){
+            System.out.println(" ");
+        }
     }
 
 
     @FXML
     private Button PoetryB;
     public void HendPoetryB() throws IOException {
-        Stage stage;
-        Parent root;
-        stage = (Stage) PoetryB.getScene().getWindow();
+        try {
+            Stage stage;
+            Parent root;
+            stage = (Stage) PoetryB.getScene().getWindow();
 
-        var appClass = NewYearMoodGeneratorApplication.class;
-        var poetryresources = appClass.getResource("poetry.fxml");
+            var appClass = NewYearMoodGeneratorApplication.class;
+            var poetryresources = appClass.getResource("poetry.fxml");
 
-        root = FXMLLoader.load(requireNonNull(poetryresources));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            root = FXMLLoader.load(requireNonNull(poetryresources));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+            seFiDe.cancelTimer();
+        }
+        catch (NullPointerException ex){
+            System.out.println(" ");
+        }
     }
 
 
@@ -236,6 +253,8 @@ public class FilmController {
 
     @FXML
     void getFilmPane() throws IOException {
+        try {
+
         Stage stage;
         Parent root;
         stage = (Stage) PoetryB.getScene().getWindow();
@@ -247,5 +266,11 @@ public class FilmController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+            seFiDe.cancelTimer();
+        }
+        catch (NullPointerException exception){
+            System.out.println(" ");
+        }
     }
 }

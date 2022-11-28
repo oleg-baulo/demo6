@@ -1,5 +1,9 @@
 package Descriptions;
 
+import com.example.demo6.NewYearMoodGeneratorApplication;
+import javafx.css.PseudoClass;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -32,6 +36,9 @@ public class SelectFilmDescription {
     private boolean running;
     private Timer timer;
     private  TimerTask timerTask;
+
+
+    private Scene filmScene;
 
 
     public void SFD(AnchorPane fp, Image img, String name, String rating, String relise, String age, String time, String source) throws MalformedURLException {
@@ -140,8 +147,9 @@ public class SelectFilmDescription {
 
 
         trailerProgress = new ProgressBar();
-        File progressStyle = new File("src/main/resources/com/example/demo6/Css/progressBar.css");
-        trailerProgress.getStylesheets().add(String.valueOf(progressStyle));
+        var progressStyle = NewYearMoodGeneratorApplication.class;
+        var trailerPS = progressStyle.getResource("Css/progressBar.css");
+        trailerProgress.getStylesheets().add(String.valueOf(trailerPS));
         trailerProgress.setPrefSize(232,8);
         trailerProgress.setLayoutX(167);
         trailerProgress.setLayoutY(200);
@@ -171,8 +179,9 @@ public class SelectFilmDescription {
         Button pauseB = new Button();
         pauseB.setGraphic(pause);
         pauseB.setPrefSize(39,32);
-        File ppButtonStyle = new File(new File("src/main/resources/com/example/demo6/Css/playPauseBstyle.css").toURI().toURL().toExternalForm());
-        pauseB.getStylesheets().add(String.valueOf(ppButtonStyle));
+        var buttonStyle = NewYearMoodGeneratorApplication.class;
+        var ppBS = buttonStyle.getResource("Css/playPauseBstyle.css");
+        pauseB.getStylesheets().add(String.valueOf(ppBS));
         pauseB.setLayoutX(215);
         pauseB.setLayoutY(219);
         pauseB.setOnAction(actionEvent -> {cancelTimer();  mediaPlayer.pause();});
@@ -184,7 +193,7 @@ public class SelectFilmDescription {
 
         Button playB = new Button();
         playB.setGraphic(play);
-        playB.getStylesheets().add(String.valueOf(ppButtonStyle));
+        playB.getStylesheets().add(String.valueOf(ppBS));
         playB.setPrefSize(39,32);
         playB.setLayoutY(219);
         playB.setLayoutX(170);
