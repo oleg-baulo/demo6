@@ -13,6 +13,10 @@ import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -30,7 +34,7 @@ public class SelectFilmDescription {
     private  TimerTask timerTask;
 
 
-    public void SFD(AnchorPane fp, Image img, String name, String rating, String relise, String age, String time, String source) {
+    public void SFD(AnchorPane fp, Image img, String name, String rating, String relise, String age, String time, String source) throws MalformedURLException {
         media = new Media(source);
 
         // Create the player and set to play automatically.
@@ -136,7 +140,8 @@ public class SelectFilmDescription {
 
 
         trailerProgress = new ProgressBar();
-        trailerProgress.getStylesheets().add(this.getClass().getResource("Css/progressBar.css").toString());
+        File progressStyle = new File("src/main/resources/com/example/demo6/Css/progressBar.css");
+        trailerProgress.getStylesheets().add(String.valueOf(progressStyle));
         trailerProgress.setPrefSize(232,8);
         trailerProgress.setLayoutX(167);
         trailerProgress.setLayoutY(200);
@@ -166,7 +171,8 @@ public class SelectFilmDescription {
         Button pauseB = new Button();
         pauseB.setGraphic(pause);
         pauseB.setPrefSize(39,32);
-        pauseB.getStylesheets().add(getClass().getResource("Css/playPauseBstyle.css").toExternalForm());
+        File ppButtonStyle = new File(new File("src/main/resources/com/example/demo6/Css/playPauseBstyle.css").toURI().toURL().toExternalForm());
+        pauseB.getStylesheets().add(String.valueOf(ppButtonStyle));
         pauseB.setLayoutX(215);
         pauseB.setLayoutY(219);
         pauseB.setOnAction(actionEvent -> {cancelTimer();  mediaPlayer.pause();});
@@ -178,7 +184,7 @@ public class SelectFilmDescription {
 
         Button playB = new Button();
         playB.setGraphic(play);
-        playB.getStylesheets().add(getClass().getResource("Css/playPauseBstyle.css").toExternalForm());
+        playB.getStylesheets().add(String.valueOf(ppButtonStyle));
         playB.setPrefSize(39,32);
         playB.setLayoutY(219);
         playB.setLayoutX(170);

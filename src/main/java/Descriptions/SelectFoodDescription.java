@@ -9,8 +9,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import java.io.File;
+import java.net.MalformedURLException;
+
 public class SelectFoodDescription {
-    public void SFoodD(AnchorPane foodPane, Image foodimage,String name ,String ingridienty, String recept, String callory, String time){
+    public void SFoodD(AnchorPane foodPane, Image foodimage,String name ,String ingridienty, String recept, String callory, String time) throws MalformedURLException {
 
 
         AnchorPane foodInfPane = new AnchorPane();
@@ -24,7 +27,8 @@ public class SelectFoodDescription {
         scrollInfPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollInfPane.setStyle("-fx-background-color: #a0693d;");
 
-        scrollInfPane.getStylesheets().add(this.getClass().getResource("Css/foodScroll.css").toExternalForm());
+        File scrollStyle = new File(new File("Css/foodScroll.css").toURI().toURL().toExternalForm());
+        scrollInfPane.getStylesheets().add(String.valueOf(scrollStyle));
         scrollInfPane.setLayoutY(19);
         scrollInfPane.setLayoutX(341);
         scrollInfPane.setPrefSize(262, 237);

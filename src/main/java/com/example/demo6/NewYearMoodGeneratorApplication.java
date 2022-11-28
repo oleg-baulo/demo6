@@ -13,7 +13,7 @@ public class NewYearMoodGeneratorApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(NewYearMoodGeneratorApplication.class.getResource("film.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(NewYearMoodGeneratorApplication.class.getResource("Film.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 802, 600);
 
         stage.setResizable(false);

@@ -3,6 +3,7 @@ package Controllers;
 import com.example.demo6.Countdown;
 import Descriptions.SelectFoodDescription;
 import Descriptions.foodDescription;
+import com.example.demo6.NewYearMoodGeneratorApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,9 +21,11 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
+import static java.util.Objects.requireNonNull;
 
 public class FoodController {
 
@@ -92,13 +95,19 @@ public class FoodController {
         button.setPrefSize(170, 58);
         button.setLayoutY(148);
         button.setOnMouseClicked(event -> {
+
             fPane.getChildren().clear();
             String btext = button.getText();
+
             for (foodDescription fd : foodList) {
                 if (fd.getName().equals(btext)) {
                     Image img1 = new Image(fd.getUrl(), true);
                     String time = String.valueOf(fd.getTime());
-                    selFoDesc.SFoodD(fPane, img1, btext, fd.getIngridienty(), fd.getRecept(), fd.getCallory(), time);
+                    try {
+                        selFoDesc.SFoodD(fPane, img1, btext, fd.getIngridienty(), fd.getRecept(), fd.getCallory(), time);
+                    } catch (MalformedURLException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         });
@@ -131,10 +140,12 @@ public class FoodController {
     public void HendFofilmB() throws IOException {
         Stage stage;
         Parent root;
+        stage = (Stage) FofilmB.getScene().getWindow();
 
-            stage = (Stage) FofilmB.getScene().getWindow();
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("film.fxml")));
+        var appClass = NewYearMoodGeneratorApplication.class;
+        var poetryresources = appClass.getResource("film.fxml");
 
+        root = FXMLLoader.load(requireNonNull(poetryresources));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -150,8 +161,12 @@ public class FoodController {
     public void HendFopoetryB() throws IOException {
         Stage stage;
         Parent root;
-            stage = (Stage) FopoetryB.getScene().getWindow();
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("poetry.fxml")));
+        stage = (Stage) FopoetryB.getScene().getWindow();
+
+        var appClass = NewYearMoodGeneratorApplication.class;
+        var poetryresources = appClass.getResource("poetry.fxml");
+
+        root = FXMLLoader.load(requireNonNull(poetryresources));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

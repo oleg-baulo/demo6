@@ -4,6 +4,7 @@ import com.example.demo6.CompareFims;
 import com.example.demo6.Countdown;
 import Descriptions.FilmDescription;
 import Descriptions.SelectFilmDescription;
+import com.example.demo6.NewYearMoodGeneratorApplication;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -155,7 +156,11 @@ public class FilmController {
                         throw new RuntimeException(e);
                     }
 
-                    seFiDe.SFD(fPane, img, fd.getName(), rating, relise, age, time, trailer);
+                    try {
+                        seFiDe.SFD(fPane, img, fd.getName(), rating, relise, age, time, trailer);
+                    } catch (MalformedURLException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         });
@@ -197,10 +202,12 @@ public class FilmController {
     public void HendFoodB() throws IOException {
         Stage stage;
         Parent root;
-
         stage = (Stage) FoodB.getScene().getWindow();
-        root = FXMLLoader.load(requireNonNull(getClass().getResource("food.fxml")));
 
+        var appClass = NewYearMoodGeneratorApplication.class;
+        var poetryresources = appClass.getResource("food.fxml");
+
+        root = FXMLLoader.load(requireNonNull(poetryresources));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -213,7 +220,11 @@ public class FilmController {
         Stage stage;
         Parent root;
         stage = (Stage) PoetryB.getScene().getWindow();
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("poetry.fxml")));
+
+        var appClass = NewYearMoodGeneratorApplication.class;
+        var poetryresources = appClass.getResource("poetry.fxml");
+
+        root = FXMLLoader.load(requireNonNull(poetryresources));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -227,8 +238,12 @@ public class FilmController {
     void getFilmPane() throws IOException {
         Stage stage;
         Parent root;
-        stage = (Stage) Home.getScene().getWindow();
-        root = FXMLLoader.load(requireNonNull(getClass().getResource("film.fxml")));
+        stage = (Stage) PoetryB.getScene().getWindow();
+
+        var appClass = NewYearMoodGeneratorApplication.class;
+        var poetryresources = appClass.getResource("Film.fxml");
+
+        root = FXMLLoader.load(requireNonNull(poetryresources));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

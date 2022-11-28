@@ -2,6 +2,7 @@ package Controllers;
 
 import com.example.demo6.Countdown;
 import Descriptions.PoetryDescription;
+import com.example.demo6.NewYearMoodGeneratorApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +19,8 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import static java.util.Objects.requireNonNull;
 
 public class PoetryController {
 
@@ -135,15 +138,17 @@ public class PoetryController {
     @FXML
     private Button PfilmB;
     public void HendPfilmB () throws IOException {
-            Stage stage;
-            Parent root;
+        Stage stage;
+        Parent root;
+        stage = (Stage) PfilmB.getScene().getWindow();
 
-            stage = (Stage) PfilmB.getScene().getWindow();
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("film.fxml")));
+        var appClass = NewYearMoodGeneratorApplication.class;
+        var poetryresources = appClass.getResource("Film.fxml");
 
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+        root = FXMLLoader.load(requireNonNull(poetryresources));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 
@@ -152,10 +157,12 @@ public class PoetryController {
     public void HendPfoodB () throws IOException {
         Stage stage;
         Parent root;
+        stage = (Stage) PfoodB.getScene().getWindow();
 
-            stage = (Stage) PfoodB.getScene().getWindow();
-            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("food.fxml")));
+        var appClass = NewYearMoodGeneratorApplication.class;
+        var poetryresources = appClass.getResource("food.fxml");
 
+        root = FXMLLoader.load(requireNonNull(poetryresources));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
