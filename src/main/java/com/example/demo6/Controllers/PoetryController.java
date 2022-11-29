@@ -1,7 +1,7 @@
-package Controllers;
+package com.example.demo6.Controllers;
 
 import com.example.demo6.Countdown;
-import Descriptions.PoetryDescription;
+import com.example.demo6.Descriptions.PoetryDescription;
 import com.example.demo6.NewYearMoodGeneratorApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import static java.util.Objects.requireNonNull;
 
@@ -66,14 +65,19 @@ public class PoetryController {
 
     public void add () throws IOException {
         String padavSnig = poetryTextReader("src/main/resources/com/example/demo6/Poetries/padavSnig.txt");
-//        String nowuiRikIde = poetryTextReader("src/main/resources/com/example/demo6/Poetries/NovuiRikIde.txt");
-//        String sniguNamelo = poetryTextReader("src/main/resources/com/example/demo6/Poetries/Ну й, бо ж снігу намело.txt");
-//        String biloPadaeSnizok = poetryTextReader("src/main/resources/com/example/demo6/Poetries/Біло падає сніжок.txt");
-//        String tancyvaluZichiky = poetryTextReader("src/main/resources/com/example/demo6/Poetries/Танцювали зайчики у гайку.txt");
-//        String cherezPoleCherezLis = poetryTextReader("src/main/resources/com/example/demo6/Poetries/Через поле, через ліс.txt");
-//
+        String nowuiRikIde = poetryTextReader("src/main/resources/com/example/demo6/Poetries/NovuiRikIde.txt");
+        String sniguNamelo = poetryTextReader("src/main/resources/com/example/demo6/Poetries/Ну й, бо ж снігу намело.txt");
+        String biloPadaeSnizok = poetryTextReader("src/main/resources/com/example/demo6/Poetries/Біло падає сніжок.txt");
+        String uNicnuChas = poetryTextReader("src/main/resources/com/example/demo6/Poetries/У нічний казковий час.txt");
+        String cherezPoleCherezLis = poetryTextReader("src/main/resources/com/example/demo6/Poetries/Через поле, через ліс.txt");
 
-        poetryList.add(new PoetryDescription("Падав сніг", padavSnig));
+
+        poetryList.add(new PoetryDescription("***", padavSnig));
+        poetryList.add(new PoetryDescription("***", nowuiRikIde));
+        poetryList.add(new PoetryDescription("***", sniguNamelo));
+        poetryList.add(new PoetryDescription("***", biloPadaeSnizok));
+        poetryList.add(new PoetryDescription("***", uNicnuChas));
+        poetryList.add(new PoetryDescription("***", cherezPoleCherezLis));
 
         for (PoetryDescription pd : poetryList){
             String pName = pd.getName();
@@ -87,19 +91,23 @@ public class PoetryController {
     public void poetryAdd(FlowPane flowPane, String name, String poetry){///
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setStyle("-fx-background-color: #ae774b; -fx-background-radius: 7;");
+        anchorPane.setMinSize(178, 222);
+        anchorPane.setMaxSize(178, 222);
         anchorPane.setPrefWidth(178);
         anchorPane.setPrefHeight(222);
 
         Text pName = new Text(name);
         //pName.setText(name);
         pName.setFill(Color.WHITE);
-        pName.setLayoutX(14);
+        pName.setWrappingWidth(166.9830722808838);
+        pName.setLayoutX(7);
         pName.setLayoutY(22);
         pName.setFont(Font.font("System Bold", 20));
 
         Text Poetry = new Text(poetry);
+        Poetry.setWrappingWidth(166.9830722808838);
         Poetry.setFill(Color.WHITE);
-        Poetry.setLayoutY(61);
+        Poetry.setLayoutY(55);
         Poetry.setLayoutX(10);
         Poetry.setFont(Font.font("System Bold", 15));
 

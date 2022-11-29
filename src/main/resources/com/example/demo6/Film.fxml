@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e6975c;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.FilmController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e6975c;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.Controllers.FilmController">
    <AnchorPane fx:id="FPFpane" layoutX="-7.0" prefHeight="600.0" prefWidth="194.0"
                style="-fx-background-color: #52834f; -fx-background-radius: 10;">
       <Button id="FilmB" fx:id="Home" layoutX="37.0" layoutY="214.0" mnemonicParsing="false" onAction="#getFilmPane"

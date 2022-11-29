@@ -1,8 +1,6 @@
-package Descriptions;
+package com.example.demo6.Descriptions;
 
 import com.example.demo6.NewYearMoodGeneratorApplication;
-import javafx.css.PseudoClass;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,16 +9,16 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
-import java.io.File;
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -38,14 +36,17 @@ public class SelectFilmDescription {
     private  TimerTask timerTask;
 
 
-    private Scene filmScene;
-
-
     public void SFD(AnchorPane fp, Image img, String name, String rating, String relise, String age, String time, String source) throws MalformedURLException {
+
+        var buttonStyle = NewYearMoodGeneratorApplication.class;
+        var ppBS = buttonStyle.getResource("Css/playPauseBstyle.css");
+
+
         media = new Media(source);
 
         // Create the player and set to play automatically.
         mediaPlayer = new MediaPlayer(media);
+        mediaPlayer.setVolume(0);
         mediaPlayer.setAutoPlay(false);
 
         // Create the view and add it to the Scene.
@@ -57,10 +58,10 @@ public class SelectFilmDescription {
 
         //Film icon
         ImageView imageView = new ImageView(img);
-        imageView.setLayoutX(46);
-        imageView.setLayoutY(26);
-        imageView.setFitHeight(200);
-        imageView.setFitWidth(141);
+        imageView.setLayoutX(40);
+        imageView.setLayoutY(10);
+        imageView.setFitHeight(272);
+        imageView.setFitWidth(201);
 
         //Film information pane
         AnchorPane inf = new AnchorPane();
@@ -175,12 +176,22 @@ public class SelectFilmDescription {
         pause.setFitHeight(25);
         pause.setFitWidth(25);
 
+        ImageView resetIcon = new ImageView(new Image("file:src\\main\\resources\\com\\example\\demo6\\img\\reset.png"));
+        resetIcon.setFitWidth(25);
+        resetIcon.setFitHeight(25);
+
+        Button reset = new Button();
+        reset.setGraphic(resetIcon);
+        reset.getStylesheets().add(String.valueOf(ppBS));
+        reset.setOnAction(actionEvent -> {
+            reset();
+        });
+
 
         Button pauseB = new Button();
         pauseB.setGraphic(pause);
         pauseB.setPrefSize(39,32);
-        var buttonStyle = NewYearMoodGeneratorApplication.class;
-        var ppBS = buttonStyle.getResource("Css/playPauseBstyle.css");
+
         pauseB.getStylesheets().add(String.valueOf(ppBS));
         pauseB.setLayoutX(215);
         pauseB.setLayoutY(219);
@@ -199,11 +210,15 @@ public class SelectFilmDescription {
         playB.setLayoutX(170);
         playB.setOnAction(actionEvent -> {playTimer(); mediaPlayer.play();});
 
-
+        FlowPane controllFilm = new FlowPane(playB, pauseB, reset, volume, volumeSlider);
+        controllFilm.setHgap(10);
+        controllFilm.setPrefSize(331, 32);
+        controllFilm.setLayoutY(218);
+        controllFilm.setLayoutX(138);
 
         //Film trailer pane
         AnchorPane tr = new AnchorPane();
-        tr.getChildren().addAll(mediaView, volumeSlider, pauseB, playB, trailerProgress, volume);
+        tr.getChildren().addAll(mediaView, trailerProgress, controllFilm);
         tr.setStyle("-fx-background-color: #9e5b26; -fx-background-radius: 7;");
         tr.setPrefSize(580,262);
         tr.setLayoutX(16);
@@ -232,5 +247,9 @@ public class SelectFilmDescription {
     public void cancelTimer(){
         running = false;
         timer.cancel();
+    }
+    public void reset(){
+        trailerProgress.setProgress(0);
+        mediaPlayer.seek(Duration.seconds(0));
     }
 }

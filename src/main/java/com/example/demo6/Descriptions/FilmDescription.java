@@ -1,7 +1,5 @@
-package Descriptions;
+package com.example.demo6.Descriptions;
 
-
-import java.io.File;
 
 public class FilmDescription {
 

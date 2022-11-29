@@ -1,7 +1,7 @@
-package Controllers;
+package com.example.demo6.Controllers;
 
-import Descriptions.FilmDescription;
-import Descriptions.SelectFilmDescription;
+import com.example.demo6.Descriptions.FilmDescription;
+import com.example.demo6.Descriptions.SelectFilmDescription;
 import com.example.demo6.CompareFims;
 import com.example.demo6.Countdown;
 import com.example.demo6.NewYearMoodGeneratorApplication;

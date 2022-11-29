@@ -1,6 +1,6 @@
 package com.example.demo6;
 
-import Descriptions.FilmDescription;
+import com.example.demo6.Descriptions.FilmDescription;
 
 import java.util.Comparator;
 import java.util.List;

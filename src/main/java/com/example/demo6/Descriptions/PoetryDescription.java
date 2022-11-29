@@ -1,4 +1,4 @@
-package Descriptions;
+package com.example.demo6.Descriptions;
 
 public class PoetryDescription {
     private String name;

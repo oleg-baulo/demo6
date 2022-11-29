@@ -1,4 +1,4 @@
-package Descriptions;
+package com.example.demo6.Descriptions;
 
 import com.example.demo6.NewYearMoodGeneratorApplication;
 import javafx.scene.control.Label;
@@ -10,7 +10,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-import java.io.File;
 import java.net.MalformedURLException;
 
 public class SelectFoodDescription {
@@ -31,8 +30,7 @@ public class SelectFoodDescription {
         scrollInfPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         scrollInfPane.setStyle("-fx-background-color: #a0693d; -fx-background-radius: 8; -fx-border-color: #a0693d");
 
-        File scrollStyle = new File(new File("Css/foodScroll.css").toURI().toURL().toExternalForm());
-        scrollInfPane.getStylesheets().add(String.valueOf(scrollStyle));
+        scrollInfPane.getStylesheets().add(String.valueOf(infBS));
         scrollInfPane.setLayoutY(19);
         scrollInfPane.setLayoutX(341);
         scrollInfPane.setPrefSize(262, 237);

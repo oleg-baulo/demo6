@@ -1,8 +1,8 @@
-package Controllers;
+package com.example.demo6.Controllers;
 
 import com.example.demo6.Countdown;
-import Descriptions.SelectFoodDescription;
-import Descriptions.foodDescription;
+import com.example.demo6.Descriptions.SelectFoodDescription;
+import com.example.demo6.Descriptions.foodDescription;
 import com.example.demo6.NewYearMoodGeneratorApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

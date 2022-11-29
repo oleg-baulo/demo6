@@ -4,7 +4,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="222.0" prefWidth="178.0" style="-fx-background-color: #ae774b; -fx-background-radius: 7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.PoetryController">
+<AnchorPane prefHeight="222.0" prefWidth="178.0" style="-fx-background-color: #ae774b; -fx-background-radius: 7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo6.Controllers.PoetryController">
    <children>
       <Text fill="WHITE" layoutX="14.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Падав сніг">
          <font>
